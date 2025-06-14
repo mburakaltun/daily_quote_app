@@ -1,3 +1,4 @@
+import 'package:daily_quote_app/common/extension/localization_extension.dart';
 import 'package:flutter/material.dart';
 import '../model/exception/api_exception.dart';
 
