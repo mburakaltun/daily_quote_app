@@ -1,7 +1,12 @@
+import 'package:daily_quote_app/common/extension/localization_extension.dart';
 import 'package:flutter/material.dart';
-import 'sign_up_screen.dart';
-import 'forgot_password_screen.dart';
-import '../../main.dart'; // for MainNavigation screen
+
+import '../../common/constants/routes.dart';
+import '../../common/utility/dialog_utility.dart';
+import '../../common/utility/language_utility.dart';
+import '../../main.dart';
+import '../model/request/request_sign_in_user.dart';
+import '../service/authentication_service.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -12,82 +17,164 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  String _email = '';
+  String _password = '';
+  bool _isLoading = false;
   bool _obscurePassword = true;
+  String _selectedLang = 'en';
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final AuthenticationService authenticationService = AuthenticationService();
 
-  void _handleSignIn() {
-    if (_formKey.currentState!.validate()) {
-      // You can add auth logic here
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const MainNavigation()),
-      );
+  @override
+  void initState() {
+    super.initState();
+    _loadLanguage();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadLanguage() async {
+    final lang = await LanguageHelper.getLanguage();
+    setState(() {
+      _selectedLang = lang;
+    });
+  }
+
+  Future<void> _changeLanguage(String? lang) async {
+    if (lang == null) return;
+    await LanguageHelper.setLanguage(lang);
+    setState(() {
+      _selectedLang = lang;
+    });
+    // Update app locale
+    if (context.mounted) {
+      DailyQuoteApp.setLocale(context, Locale(lang));
     }
+  }
+
+  void _signIn() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+
+      setState(() => _isLoading = true);
+
+      try {
+        await authenticationService.signIn(RequestSignInUser(email: _email, password: _password));
+
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(context, Routes.feed);
+      } catch (e) {
+        // print the error to console for debugging
+        print("SignIn error: $e");
+        if (!mounted) return;
+        DialogUtility.handleApiError(
+          context: context,
+          error: e,
+          title: context.message.signInFailed,
+        );
+      } finally {
+        if (mounted) {
+          setState(() => _isLoading = false);
+        }
+      }
+    }
+  }
+
+  Widget _languageDropdown() {
+    return Container(
+      alignment: Alignment.centerRight,
+      child: DropdownButton<String>(
+        value: _selectedLang,
+        underline: const SizedBox(),
+        icon: const Icon(Icons.language),
+        items: [
+          DropdownMenuItem(value: context.message.languageSelectionEnglishKey, child: Text(context.message.languageSelectionEnglish)),
+          DropdownMenuItem(value: context.message.languageSelectionTurkishKey, child: Text(context.message.languageSelectionTurkish)),
+        ],
+        onChanged: _changeLanguage,
+        style: Theme.of(context).textTheme.bodyMedium,
+        dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Welcome Back 👋",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.teal,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Sign in to continue exploring quotes.",
-                style: TextStyle(color: Colors.white70, fontSize: 16),
-              ),
-              const SizedBox(height: 40),
-              Form(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(24.0),
+              child: Form(
                 key: _formKey,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    // App title/logo
+                    Text(
+                      context.message.signInWelcome,
+                      style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      context.message.signInSubtitle,
+                      style: TextStyle(
+                          color: Theme.of(context).hintColor,
+                          fontSize: 16
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+
+                    // Email field
                     TextFormField(
                       controller: _emailController,
-                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey[900],
-                        labelText: "Email",
-                        labelStyle: const TextStyle(color: Colors.teal),
+                        labelText: context.message.signInEmail,
+                        prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.teal),
-                          borderRadius: BorderRadius.circular(12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                          horizontal: 16,
                         ),
                       ),
-                      validator: (value) =>
-                      value != null && value.contains('@') ? null : "Invalid email",
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.next,
+                      validator: (value) {
+                        if (value == null || value.isEmpty || !value.contains('@')) {
+                          return context.message.signInEmailHint;
+                        }
+                        return null;
+                      },
+                      onSaved: (value) => _email = value!.trim(),
                     ),
                     const SizedBox(height: 20),
+
+                    // Password field
                     TextFormField(
                       controller: _passwordController,
-                      obscureText: _obscurePassword,
-                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey[900],
-                        labelText: "Password",
-                        labelStyle: const TextStyle(color: Colors.teal),
+                        labelText: context.message.signInPassword,
+                        prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                            color: Colors.teal,
+                            _obscurePassword ? Icons.visibility_off : Icons.visibility,
                           ),
                           onPressed: () {
                             setState(() {
@@ -98,74 +185,97 @@ class _SignInScreenState extends State<SignInScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.teal),
-                          borderRadius: BorderRadius.circular(12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                          horizontal: 16,
                         ),
                       ),
-                      validator: (value) =>
-                      value != null && value.length >= 6 ? null : "Minimum 6 characters",
+                      obscureText: _obscurePassword,
+                      validator: (value) {
+                        if (value == null || value.length < 6) {
+                          return context.message.signInPasswordHint;
+                        }
+                        return null;
+                      },
+                      onSaved: (value) => _password = value!,
                     ),
-                    const SizedBox(height: 10),
+
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const ForgotPasswordScreen()),
-                          );
+                          Navigator.pushNamed(context, Routes.forgotPassword);
                         },
-                        child: const Text(
-                          "Forgot Password?",
-                          style: TextStyle(color: Colors.teal),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton(
-                        onPressed: _handleSignIn,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                        child: Text(
+                          context.message.signInForgotPassword,
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
-                        child: const Text(
-                          "Sign In",
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // Sign In button
+                    ElevatedButton(
+                      onPressed: _isLoading ? null : _signIn,
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 2,
+                      ),
+                      child: _isLoading
+                          ? const SizedBox(
+                        height: 24,
+                        width: 24,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                          strokeWidth: 2.5,
+                        ),
+                      )
+                          : Text(
+                        context.message.signIn,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+
+                    const SizedBox(height: 24),
+
+                    // Sign up link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          "Don't have an account?",
-                          style: TextStyle(color: Colors.white70),
+                        Text(
+                          context.message.signInDontHaveAccount,
+                          style: TextStyle(color: Theme.of(context).hintColor),
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (_) => const SignUpScreen()),
-                            );
+                            Navigator.pushReplacementNamed(context, Routes.signUp);
                           },
-                          child: const Text(
-                            "Sign Up",
-                            style: TextStyle(color: Colors.teal),
+                          child: Text(
+                            context.message.signUp,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
                       ],
                     ),
+
+                    const SizedBox(height: 20),
+                    _languageDropdown(),
                   ],
                 ),
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),
