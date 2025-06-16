@@ -18,6 +18,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get generalError => 'An error occurred';
 
   @override
+  String get generalTryAgain => 'Please try again';
+
+  @override
   String get languageCodeEN => 'en';
 
   @override
@@ -43,6 +46,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageSelectionTurkishKey => 'tr';
+
+  @override
+  String get languageSelectionEnglishFlagEmojiKey => '🇺🇸';
+
+  @override
+  String get languageSelectionTurkishFlagEmojiKey => '🇹🇷';
 
   @override
   String get navigationFeed => 'Feed';
@@ -184,4 +193,135 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dashboardProfile => 'Profile';
+
+  @override
+  String get profileEdit => 'Edit Profile';
+
+  @override
+  String get profileChangePassword => 'Change Password';
+
+  @override
+  String get profileSettings => 'Settings';
+
+  @override
+  String get profileAbout => 'About';
+
+  @override
+  String get profileLanguage => 'Language';
+
+  @override
+  String get profileDeleteAccount => 'Delete Account';
+
+  @override
+  String get profileSignOut => 'Sign Out';
+
+  @override
+  String get profileLoadFailed => 'Failed to load profile';
+
+  @override
+  String get profileSignOutDialogTitle => 'Sign Out';
+
+  @override
+  String get profileSignOutDialogContent => 'Are you sure you want to sign out?';
+
+  @override
+  String get profileSignOutDialogCancel => 'Cancel';
+
+  @override
+  String get profileSignOutDialogConfirm => 'Sign Out';
+
+  @override
+  String get profileDeleteAccountDialogTitle => 'Delete Account';
+
+  @override
+  String get profileDeleteAccountDialogContent => 'Are you sure you want to delete your account? This action cannot be undone.';
+
+  @override
+  String get profileDeleteAccountDialogCancel => 'Cancel';
+
+  @override
+  String get profileDeleteAccountDialogProceed => 'Proceed';
+
+  @override
+  String get profileDeleteAccountConfirmationTitle => 'Final Confirmation';
+
+  @override
+  String get profileDeleteAccountConfirmationContent => 'This will permanently delete your account and all your data. This action cannot be undone.';
+
+  @override
+  String get profileDeleteAccountConfirmationPhrase => 'DELETE';
+
+  @override
+  String profileDeleteAccountConfirmationInstruction(Object confirmationPhrase) {
+    return 'To confirm, type $confirmationPhrase';
+  }
+
+  @override
+  String get profileDeleteAccountConfirmationError => 'The confirmation text doesn\'t match';
+
+  @override
+  String get profileDeleteAccountConfirmationSubmit => 'Delete My Account';
+
+  @override
+  String get profileDeleteAccountFailed => 'Failed to delete account';
+
+  @override
+  String get profileUsername => 'Username';
+
+  @override
+  String get profileUsernameRequired => 'Username is required';
+
+  @override
+  String get profileUsernameTooShort => 'Username must be at least 3 characters';
+
+  @override
+  String get profileSave => 'Save Changes';
+
+  @override
+  String get profileUpdateSuccess => 'Profile updated successfully';
+
+  @override
+  String get profileUpdateError => 'Failed to update profile';
+
+  @override
+  String get profileEmail => 'Email';
+
+  @override
+  String get passwordChangeTitle => 'Change Password';
+
+  @override
+  String get passwordChangeCurrent => 'Current Password';
+
+  @override
+  String get passwordChangeNew => 'New Password';
+
+  @override
+  String get passwordChangeConfirm => 'Confirm New Password';
+
+  @override
+  String get passwordChangeCurrentRequired => 'Current password is required';
+
+  @override
+  String get passwordChangeNewRequired => 'New password is required';
+
+  @override
+  String get passwordChangeNewTooShort => 'New password must be at least 8 characters';
+
+  @override
+  String get passwordChangeConfirmRequired => 'Please confirm your new password';
+
+  @override
+  String get passwordChangeConfirmMismatch => 'Passwords don\'t match';
+
+  @override
+  String get passwordChangeSubmit => 'Change Password';
+
+  @override
+  String get passwordChangeSuccess => 'Password changed successfully';
+
+  @override
+  String get passwordChangeError => 'Failed to change password';
+
+  @override
+  String get passwordChangeRequirements => 'Password must be at least 8 characters long.';
 }

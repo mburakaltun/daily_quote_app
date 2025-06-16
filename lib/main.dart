@@ -86,8 +86,15 @@ class _DailyQuoteAppState extends State<DailyQuoteApp> {
             filled: true,
             fillColor: const Color(0xFF1E1E1E),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
-            labelStyle: const TextStyle(color: Colors.teal),
-            prefixIconColor: Colors.teal,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.teal, width: 2),
+            ),
+            labelStyle: const TextStyle(color: Colors.grey),
+            floatingLabelStyle: const TextStyle(color: Colors.teal),
+            hintStyle: const TextStyle(color: Color(0xFF757575)),
+            prefixIconColor: Colors.grey,
+            focusColor: Colors.teal,
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(

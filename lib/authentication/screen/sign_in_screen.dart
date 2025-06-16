@@ -75,11 +75,7 @@ class _SignInScreenState extends State<SignInScreen> {
         // print the error to console for debugging
         print("SignIn error: $e");
         if (!mounted) return;
-        DialogUtility.handleApiError(
-          context: context,
-          error: e,
-          title: context.message.signInFailed,
-        );
+        DialogUtility.handleApiError(context: context, error: e, title: context.message.signInFailed);
       } finally {
         if (mounted) {
           setState(() => _isLoading = false);
@@ -124,20 +120,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     // App title/logo
                     Text(
                       context.message.signInWelcome,
-                      style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor
-                      ),
+                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      context.message.signInSubtitle,
-                      style: TextStyle(
-                          color: Theme.of(context).hintColor,
-                          fontSize: 16
-                      ),
-                    ),
+                    Text(context.message.signInSubtitle, style: TextStyle(color: Theme.of(context).hintColor, fontSize: 16)),
                     const SizedBox(height: 40),
 
                     // Email field
@@ -146,13 +132,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       decoration: InputDecoration(
                         labelText: context.message.signInEmail,
                         prefixIcon: const Icon(Icons.email),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       ),
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
@@ -173,22 +154,15 @@ class _SignInScreenState extends State<SignInScreen> {
                         labelText: context.message.signInPassword,
                         prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscurePassword ? Icons.visibility_off : Icons.visibility,
-                          ),
+                          icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility),
                           onPressed: () {
                             setState(() {
                               _obscurePassword = !_obscurePassword;
                             });
                           },
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       ),
                       obscureText: _obscurePassword,
                       validator: (value) {
@@ -206,12 +180,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, Routes.forgotPassword);
                         },
-                        child: Text(
-                          context.message.signInForgotPassword,
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
+                        child: Text(context.message.signInForgotPassword, style: TextStyle(color: Theme.of(context).primaryColor)),
                       ),
                     ),
 
@@ -222,27 +191,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: _isLoading ? null : _signIn,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         elevation: 2,
                       ),
                       child: _isLoading
-                          ? const SizedBox(
-                        height: 24,
-                        width: 24,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2.5,
-                        ),
-                      )
-                          : Text(
-                        context.message.signIn,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                          ? const SizedBox(height: 24, width: 24, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2.5))
+                          : Text(context.message.signIn, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     ),
 
                     const SizedBox(height: 24),
@@ -251,25 +205,18 @@ class _SignInScreenState extends State<SignInScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          context.message.signInDontHaveAccount,
-                          style: TextStyle(color: Theme.of(context).hintColor),
-                        ),
+                        Text(context.message.signInDontHaveAccount, style: TextStyle(color: Theme.of(context).hintColor)),
                         TextButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(context, Routes.signUp);
                           },
                           child: Text(
                             context.message.signUp,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor),
                           ),
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
                     _languageDropdown(),
                   ],

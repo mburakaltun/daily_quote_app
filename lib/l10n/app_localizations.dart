@@ -113,6 +113,12 @@ abstract class AppLocalizations {
   /// **'An error occurred'**
   String get generalError;
 
+  /// No description provided for @generalTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Please try again'**
+  String get generalTryAgain;
+
   /// No description provided for @languageCodeEN.
   ///
   /// In en, this message translates to:
@@ -166,6 +172,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'tr'**
   String get languageSelectionTurkishKey;
+
+  /// No description provided for @languageSelectionEnglishFlagEmojiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'🇺🇸'**
+  String get languageSelectionEnglishFlagEmojiKey;
+
+  /// No description provided for @languageSelectionTurkishFlagEmojiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'🇹🇷'**
+  String get languageSelectionTurkishFlagEmojiKey;
 
   /// No description provided for @navigationFeed.
   ///
@@ -448,6 +466,264 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get dashboardProfile;
+
+  /// No description provided for @profileEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get profileEdit;
+
+  /// No description provided for @profileChangePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get profileChangePassword;
+
+  /// No description provided for @profileSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get profileSettings;
+
+  /// No description provided for @profileAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get profileAbout;
+
+  /// No description provided for @profileLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get profileLanguage;
+
+  /// No description provided for @profileDeleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get profileDeleteAccount;
+
+  /// No description provided for @profileSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get profileSignOut;
+
+  /// No description provided for @profileLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load profile'**
+  String get profileLoadFailed;
+
+  /// No description provided for @profileSignOutDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get profileSignOutDialogTitle;
+
+  /// No description provided for @profileSignOutDialogContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to sign out?'**
+  String get profileSignOutDialogContent;
+
+  /// No description provided for @profileSignOutDialogCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get profileSignOutDialogCancel;
+
+  /// No description provided for @profileSignOutDialogConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get profileSignOutDialogConfirm;
+
+  /// No description provided for @profileDeleteAccountDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get profileDeleteAccountDialogTitle;
+
+  /// No description provided for @profileDeleteAccountDialogContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account? This action cannot be undone.'**
+  String get profileDeleteAccountDialogContent;
+
+  /// No description provided for @profileDeleteAccountDialogCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get profileDeleteAccountDialogCancel;
+
+  /// No description provided for @profileDeleteAccountDialogProceed.
+  ///
+  /// In en, this message translates to:
+  /// **'Proceed'**
+  String get profileDeleteAccountDialogProceed;
+
+  /// No description provided for @profileDeleteAccountConfirmationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Final Confirmation'**
+  String get profileDeleteAccountConfirmationTitle;
+
+  /// No description provided for @profileDeleteAccountConfirmationContent.
+  ///
+  /// In en, this message translates to:
+  /// **'This will permanently delete your account and all your data. This action cannot be undone.'**
+  String get profileDeleteAccountConfirmationContent;
+
+  /// No description provided for @profileDeleteAccountConfirmationPhrase.
+  ///
+  /// In en, this message translates to:
+  /// **'DELETE'**
+  String get profileDeleteAccountConfirmationPhrase;
+
+  /// No description provided for @profileDeleteAccountConfirmationInstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'To confirm, type {confirmationPhrase}'**
+  String profileDeleteAccountConfirmationInstruction(Object confirmationPhrase);
+
+  /// No description provided for @profileDeleteAccountConfirmationError.
+  ///
+  /// In en, this message translates to:
+  /// **'The confirmation text doesn\'t match'**
+  String get profileDeleteAccountConfirmationError;
+
+  /// No description provided for @profileDeleteAccountConfirmationSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete My Account'**
+  String get profileDeleteAccountConfirmationSubmit;
+
+  /// No description provided for @profileDeleteAccountFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete account'**
+  String get profileDeleteAccountFailed;
+
+  /// No description provided for @profileUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get profileUsername;
+
+  /// No description provided for @profileUsernameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Username is required'**
+  String get profileUsernameRequired;
+
+  /// No description provided for @profileUsernameTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Username must be at least 3 characters'**
+  String get profileUsernameTooShort;
+
+  /// No description provided for @profileSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get profileSave;
+
+  /// No description provided for @profileUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profileUpdateSuccess;
+
+  /// No description provided for @profileUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update profile'**
+  String get profileUpdateError;
+
+  /// No description provided for @profileEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get profileEmail;
+
+  /// No description provided for @passwordChangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get passwordChangeTitle;
+
+  /// No description provided for @passwordChangeCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Password'**
+  String get passwordChangeCurrent;
+
+  /// No description provided for @passwordChangeNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get passwordChangeNew;
+
+  /// No description provided for @passwordChangeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get passwordChangeConfirm;
+
+  /// No description provided for @passwordChangeCurrentRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password is required'**
+  String get passwordChangeCurrentRequired;
+
+  /// No description provided for @passwordChangeNewRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'New password is required'**
+  String get passwordChangeNewRequired;
+
+  /// No description provided for @passwordChangeNewTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'New password must be at least 8 characters'**
+  String get passwordChangeNewTooShort;
+
+  /// No description provided for @passwordChangeConfirmRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your new password'**
+  String get passwordChangeConfirmRequired;
+
+  /// No description provided for @passwordChangeConfirmMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords don\'t match'**
+  String get passwordChangeConfirmMismatch;
+
+  /// No description provided for @passwordChangeSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get passwordChangeSubmit;
+
+  /// No description provided for @passwordChangeSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed successfully'**
+  String get passwordChangeSuccess;
+
+  /// No description provided for @passwordChangeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to change password'**
+  String get passwordChangeError;
+
+  /// No description provided for @passwordChangeRequirements.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters long.'**
+  String get passwordChangeRequirements;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -18,6 +18,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get generalError => 'Bir hata oluştu';
 
   @override
+  String get generalTryAgain => 'Lütfen tekrar deneyin';
+
+  @override
   String get languageCodeEN => 'en';
 
   @override
@@ -43,6 +46,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get languageSelectionTurkishKey => 'tr';
+
+  @override
+  String get languageSelectionEnglishFlagEmojiKey => '🇺🇸';
+
+  @override
+  String get languageSelectionTurkishFlagEmojiKey => '🇹🇷';
 
   @override
   String get navigationFeed => 'Akış';
@@ -184,4 +193,135 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dashboardProfile => 'Profil';
+
+  @override
+  String get profileEdit => 'Profili Düzenle';
+
+  @override
+  String get profileChangePassword => 'Şifre Değiştir';
+
+  @override
+  String get profileSettings => 'Ayarlar';
+
+  @override
+  String get profileAbout => 'Hakkında';
+
+  @override
+  String get profileLanguage => 'Dil';
+
+  @override
+  String get profileDeleteAccount => 'Hesabı Sil';
+
+  @override
+  String get profileSignOut => 'Çıkış Yap';
+
+  @override
+  String get profileLoadFailed => 'Profil yüklenemedi';
+
+  @override
+  String get profileSignOutDialogTitle => 'Çıkış Yap';
+
+  @override
+  String get profileSignOutDialogContent => 'Çıkış yapmak istediğinize emin misiniz?';
+
+  @override
+  String get profileSignOutDialogCancel => 'İptal';
+
+  @override
+  String get profileSignOutDialogConfirm => 'Çıkış Yap';
+
+  @override
+  String get profileDeleteAccountDialogTitle => 'Hesabı Sil';
+
+  @override
+  String get profileDeleteAccountDialogContent => 'Hesabınızı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.';
+
+  @override
+  String get profileDeleteAccountDialogCancel => 'İptal';
+
+  @override
+  String get profileDeleteAccountDialogProceed => 'Devam Et';
+
+  @override
+  String get profileDeleteAccountConfirmationTitle => 'Son Onay';
+
+  @override
+  String get profileDeleteAccountConfirmationContent => 'Bu, hesabınızı ve tüm verilerinizi kalıcı olarak silecektir. Bu işlem geri alınamaz.';
+
+  @override
+  String get profileDeleteAccountConfirmationPhrase => 'SİL';
+
+  @override
+  String profileDeleteAccountConfirmationInstruction(Object confirmationPhrase) {
+    return 'Onaylamak için $confirmationPhrase yazın';
+  }
+
+  @override
+  String get profileDeleteAccountConfirmationError => 'Onay metni eşleşmiyor';
+
+  @override
+  String get profileDeleteAccountConfirmationSubmit => 'Hesabımı Sil';
+
+  @override
+  String get profileDeleteAccountFailed => 'Hesap silinemedi';
+
+  @override
+  String get profileUsername => 'Kullanıcı Adı';
+
+  @override
+  String get profileUsernameRequired => 'Kullanıcı adı gereklidir';
+
+  @override
+  String get profileUsernameTooShort => 'Kullanıcı adı en az 3 karakter olmalıdır';
+
+  @override
+  String get profileSave => 'Değişiklikleri Kaydet';
+
+  @override
+  String get profileUpdateSuccess => 'Profil başarıyla güncellendi';
+
+  @override
+  String get profileUpdateError => 'Profil güncellenemedi';
+
+  @override
+  String get profileEmail => 'E-posta';
+
+  @override
+  String get passwordChangeTitle => 'Şifre Değiştir';
+
+  @override
+  String get passwordChangeCurrent => 'Mevcut Şifre';
+
+  @override
+  String get passwordChangeNew => 'Yeni Şifre';
+
+  @override
+  String get passwordChangeConfirm => 'Yeni Şifreyi Onayla';
+
+  @override
+  String get passwordChangeCurrentRequired => 'Mevcut şifre gerekli';
+
+  @override
+  String get passwordChangeNewRequired => 'Yeni şifre gerekli';
+
+  @override
+  String get passwordChangeNewTooShort => 'Yeni şifre en az 8 karakter olmalıdır';
+
+  @override
+  String get passwordChangeConfirmRequired => 'Lütfen yeni şifrenizi onaylayın';
+
+  @override
+  String get passwordChangeConfirmMismatch => 'Şifreler eşleşmiyor';
+
+  @override
+  String get passwordChangeSubmit => 'Şifreyi Değiştir';
+
+  @override
+  String get passwordChangeSuccess => 'Şifre başarıyla değiştirildi';
+
+  @override
+  String get passwordChangeError => 'Şifre değiştirilemedi';
+
+  @override
+  String get passwordChangeRequirements => 'Şifre en az 8 karakter uzunluğunda olmalıdır.';
 }
