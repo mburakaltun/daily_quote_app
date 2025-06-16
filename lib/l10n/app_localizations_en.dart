@@ -169,4 +169,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotPasswordRemembered => 'Remembered your password?';
+
+  @override
+  String get dashboardFeed => 'Feed';
+
+  @override
+  String get dashboardDiscover => 'Discover';
+
+  @override
+  String get dashboardLiked => 'Liked';
+
+  @override
+  String get dashboardNotification => 'Notifications';
+
+  @override
+  String get dashboardProfile => 'Profile';
 }

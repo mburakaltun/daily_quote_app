@@ -70,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
         await authenticationService.signIn(RequestSignInUser(email: _email, password: _password));
 
         if (!mounted) return;
-        Navigator.pushReplacementNamed(context, Routes.feed);
+        Navigator.pushReplacementNamed(context, Routes.dashboard);
       } catch (e) {
         // print the error to console for debugging
         print("SignIn error: $e");

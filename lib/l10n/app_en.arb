@@ -3,6 +3,7 @@
   "appName": "Daily Visdom",
   "ok": "Ok",
   "generalError": "An error occurred",
+
   "languageCodeEN": "en",
   "languageCodeTR": "tr",
   "languageEnglish": "English",
@@ -57,5 +58,11 @@
   "forgotPasswordSubmit": "Send Reset Link",
   "forgotPasswordFailed": "Password Reset Failed",
   "forgotPasswordResetLinkSent": "If your email exists in our system, a password reset link has been sent.",
-  "forgotPasswordRemembered": "Remembered your password?"
+  "forgotPasswordRemembered": "Remembered your password?",
+
+  "dashboardFeed": "Feed",
+  "dashboardDiscover": "Discover",
+  "dashboardLiked": "Liked",
+  "dashboardNotification": "Notifications",
+  "dashboardProfile": "Profile"
 }

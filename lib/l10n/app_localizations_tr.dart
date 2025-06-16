@@ -99,10 +99,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get signUpSubtitle => 'Bize katılın ve her gün ilham alın.';
 
   @override
-  String get signUpEmail => 'Email';
+  String get signUpEmail => 'E-posta';
 
   @override
-  String get signUpEmailHint => 'Please enter a valid email.';
+  String get signUpEmailHint => 'Lütfen geçerli bir e-posta adresi girin.';
 
   @override
   String get signUpUsername => 'Kullanıcı Adı';
@@ -111,16 +111,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get signUpUsernameHint => 'Kullanıcı adı gerekli';
 
   @override
-  String get signUpPassword => 'Password';
+  String get signUpPassword => 'Şifre';
 
   @override
-  String get signUpPasswordHint => 'Password must be at least 8 characters.';
+  String get signUpPasswordHint => 'Şifre en az 8 karakter olmalıdır.';
 
   @override
   String get signUpConfirmPassword => 'Şifreyi Onayla';
 
   @override
-  String get signUpConfirmPasswordHint => 'Passwords do not match.';
+  String get signUpConfirmPasswordHint => 'Şifreler eşleşmiyor.';
 
   @override
   String get signUpPasswordsDoNotMatch => 'Şifreler eşleşmiyor';
@@ -169,4 +169,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get forgotPasswordRemembered => 'Şifreni hatırladın mı?';
+
+  @override
+  String get dashboardFeed => 'Akış';
+
+  @override
+  String get dashboardDiscover => 'Keşfet';
+
+  @override
+  String get dashboardLiked => 'Beğenilenler';
+
+  @override
+  String get dashboardNotification => 'Bildirimler';
+
+  @override
+  String get dashboardProfile => 'Profil';
 }

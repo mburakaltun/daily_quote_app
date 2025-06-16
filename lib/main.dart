@@ -1,6 +1,7 @@
 import 'package:daily_quote_app/authentication/screen/start_forgot_password_screen.dart';
 import 'package:daily_quote_app/authentication/screen/sign_up_screen.dart';
 import 'package:daily_quote_app/common/extension/localization_extension.dart';
+import 'package:daily_quote_app/common/screen/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -106,6 +107,7 @@ class _DailyQuoteAppState extends State<DailyQuoteApp> {
         Routes.forgotPassword : (context) => const StartForgotPasswordScreen(),
         Routes.signUpSuccess: (context) => const SignUpSuccessScreen(),
         Routes.feed : (context) => const FeedScreen(),
+        Routes.dashboard : (context) => const DashboardScreen(),
       }
     );
   }

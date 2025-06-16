@@ -4,4 +4,5 @@ class Routes {
   static const String signUpSuccess = '/success';
   static const String forgotPassword = '/forgotPassword';
   static const String feed = '/feed';
+  static const String dashboard = '/dashboard';
 }

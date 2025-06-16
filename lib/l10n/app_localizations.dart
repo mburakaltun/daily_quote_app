@@ -418,6 +418,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remembered your password?'**
   String get forgotPasswordRemembered;
+
+  /// No description provided for @dashboardFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Feed'**
+  String get dashboardFeed;
+
+  /// No description provided for @dashboardDiscover.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover'**
+  String get dashboardDiscover;
+
+  /// No description provided for @dashboardLiked.
+  ///
+  /// In en, this message translates to:
+  /// **'Liked'**
+  String get dashboardLiked;
+
+  /// No description provided for @dashboardNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get dashboardNotification;
+
+  /// No description provided for @dashboardProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get dashboardProfile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
