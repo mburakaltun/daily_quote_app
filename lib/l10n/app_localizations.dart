@@ -724,6 +724,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password must be at least 8 characters long.'**
   String get passwordChangeRequirements;
+
+  /// No description provided for @feedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Quotes'**
+  String get feedTitle;
+
+  /// No description provided for @feedLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading inspiration...'**
+  String get feedLoading;
+
+  /// No description provided for @feedLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load quotes. Please check your connection.'**
+  String get feedLoadError;
+
+  /// No description provided for @feedLike.
+  ///
+  /// In en, this message translates to:
+  /// **'Like'**
+  String get feedLike;
+
+  /// No description provided for @feedSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get feedSave;
+
+  /// No description provided for @feedShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get feedShare;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

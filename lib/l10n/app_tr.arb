@@ -113,5 +113,12 @@
   "passwordChangeSubmit": "Şifreyi Değiştir",
   "passwordChangeSuccess": "Şifre başarıyla değiştirildi",
   "passwordChangeError": "Şifre değiştirilemedi",
-  "passwordChangeRequirements": "Şifre en az 8 karakter uzunluğunda olmalıdır."
+  "passwordChangeRequirements": "Şifre en az 8 karakter uzunluğunda olmalıdır.",
+
+  "feedTitle": "Günlük Alıntılar",
+  "feedLoading": "İlham yükleniyor...",
+  "feedLoadError": "Alıntılar yüklenemedi. Lütfen bağlantınızı kontrol edin.",
+  "feedLike": "Beğen",
+  "feedSave": "Kaydet",
+  "feedShare": "Paylaş"
 }

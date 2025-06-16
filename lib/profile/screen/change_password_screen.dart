@@ -47,17 +47,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       await _userService.changePassword(request);
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.message.passwordChangeSuccess)),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.message.passwordChangeSuccess)));
       Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
-      DialogUtility.handleApiError(
-          context: context,
-          error: e,
-          title: context.message.passwordChangeError
-      );
+      DialogUtility.handleApiError(context: context, error: e, title: context.message.passwordChangeError);
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -66,7 +60,34 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.message.passwordChangeTitle)),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text(
+          context.message.passwordChangeTitle,
+          style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.titleLarge?.color),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).primaryColor),
+          onPressed: () => Navigator.pop(context),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.help_outline, color: Theme.of(context).primaryColor),
+            onPressed: () {
+              // Show password requirements or help dialog
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(context.message.passwordChangeTitle),
+                  content: Text(context.message.passwordChangeNewTooShort),
+                  actions: [TextButton(onPressed: () => Navigator.pop(context), child: Text("OK"))],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: Form(
         key: _formKey,
         child: ListView(
@@ -75,11 +96,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             // Security icon
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 32),
-              child: Icon(
-                Icons.security,
-                size: 70,
-                color: Theme.of(context).primaryColor.withOpacity(0.7),
-              ),
+              child: Icon(Icons.security, size: 70, color: Theme.of(context).primaryColor.withOpacity(0.7)),
             ),
 
             // Current password field
@@ -90,9 +107,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 labelText: context.message.passwordChangeCurrent,
                 prefixIcon: const Icon(Icons.lock_outline),
                 suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureCurrentPassword ? Icons.visibility_off : Icons.visibility,
-                  ),
+                  icon: Icon(_obscureCurrentPassword ? Icons.visibility_off : Icons.visibility),
                   onPressed: () {
                     setState(() {
                       _obscureCurrentPassword = !_obscureCurrentPassword;
@@ -117,9 +132,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 labelText: context.message.passwordChangeNew,
                 prefixIcon: const Icon(Icons.lock_outline),
                 suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureNewPassword ? Icons.visibility_off : Icons.visibility,
-                  ),
+                  icon: Icon(_obscureNewPassword ? Icons.visibility_off : Icons.visibility),
                   onPressed: () {
                     setState(() {
                       _obscureNewPassword = !_obscureNewPassword;
@@ -147,9 +160,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 labelText: context.message.passwordChangeConfirm,
                 prefixIcon: const Icon(Icons.lock_outline),
                 suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureConfirmPassword ? Icons.visibility_off : Icons.visibility,
-                  ),
+                  icon: Icon(_obscureConfirmPassword ? Icons.visibility_off : Icons.visibility),
                   onPressed: () {
                     setState(() {
                       _obscureConfirmPassword = !_obscureConfirmPassword;
@@ -177,11 +188,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
               child: _isLoading
-                  ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2)
-              )
+                  ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2))
                   : Text(context.message.passwordChangeSubmit),
             ),
           ],

@@ -112,5 +112,12 @@
   "passwordChangeSubmit": "Change Password",
   "passwordChangeSuccess": "Password changed successfully",
   "passwordChangeError": "Failed to change password",
-  "passwordChangeRequirements": "Password must be at least 8 characters long."
+  "passwordChangeRequirements": "Password must be at least 8 characters long.",
+
+  "feedTitle": "Daily Quotes",
+  "feedLoading": "Loading inspiration...",
+  "feedLoadError": "Couldn't load quotes. Please check your connection.",
+  "feedLike": "Like",
+  "feedSave": "Save",
+  "feedShare": "Share"
 }

@@ -324,4 +324,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordChangeRequirements => 'Password must be at least 8 characters long.';
+
+  @override
+  String get feedTitle => 'Daily Quotes';
+
+  @override
+  String get feedLoading => 'Loading inspiration...';
+
+  @override
+  String get feedLoadError => 'Couldn\'t load quotes. Please check your connection.';
+
+  @override
+  String get feedLike => 'Like';
+
+  @override
+  String get feedSave => 'Save';
+
+  @override
+  String get feedShare => 'Share';
 }

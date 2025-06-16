@@ -63,16 +63,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     setState(() => _isLoading = true);
 
     try {
-      final request = RequestChangeUsername(
-        newUsername: _usernameController.text.trim(),
-      );
+      final request = RequestChangeUsername(newUsername: _usernameController.text.trim());
 
       final response = await _userService.changeUsername(request);
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.message.profileUpdateSuccess)),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.message.profileUpdateSuccess)));
       Navigator.pop(context, true);
     } catch (e) {
       if (!mounted) return;
@@ -111,7 +107,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.message.profileEdit),
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text(
+          context.message.profileEdit,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).textTheme.titleLarge?.color,
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).primaryColor),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: _isLoadingProfile
           ? const Center(child: CircularProgressIndicator())
@@ -130,10 +138,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             const SizedBox(height: 24),
             TextFormField(
               controller: _usernameController,
-              decoration: InputDecoration(
-                labelText: context.message.profileUsername,
-                prefixIcon: const Icon(Icons.person_outline),
-              ),
+              decoration: InputDecoration(labelText: context.message.profileUsername, prefixIcon: const Icon(Icons.person_outline)),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
                   return context.message.profileUsernameRequired;
@@ -150,12 +155,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               initialValue: _profile?.email,
               readOnly: true,
               enabled: false,
-              decoration: InputDecoration(
-                labelText: context.message.profileEmail,
-                prefixIcon: const Icon(Icons.email_outlined),
-              ),
+              decoration: InputDecoration(labelText: context.message.profileEmail, prefixIcon: const Icon(Icons.email_outlined)),
             ),
             const SizedBox(height: 32),
+            // Save button moved to the form body
             ElevatedButton(
               onPressed: _isLoading ? null : _saveProfile,
               style: ElevatedButton.styleFrom(
@@ -163,12 +166,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
               child: _isLoading
-                  ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2)
-              )
+                  ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2))
                   : Text(context.message.profileSave),
+            ),
+            const SizedBox(height: 16),
+            // Instructions text
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                 "Enter your new username and tap Save to update your profile.",
+                style: TextStyle(color: Theme.of(context).hintColor, fontStyle: FontStyle.italic),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),

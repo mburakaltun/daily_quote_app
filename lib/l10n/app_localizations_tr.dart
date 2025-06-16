@@ -324,4 +324,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get passwordChangeRequirements => 'Şifre en az 8 karakter uzunluğunda olmalıdır.';
+
+  @override
+  String get feedTitle => 'Günlük Alıntılar';
+
+  @override
+  String get feedLoading => 'İlham yükleniyor...';
+
+  @override
+  String get feedLoadError => 'Alıntılar yüklenemedi. Lütfen bağlantınızı kontrol edin.';
+
+  @override
+  String get feedLike => 'Beğen';
+
+  @override
+  String get feedSave => 'Kaydet';
+
+  @override
+  String get feedShare => 'Paylaş';
 }
