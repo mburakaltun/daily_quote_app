@@ -39,9 +39,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
     });
 
     try {
-      await _authenticationService.startForgotPassword(
-          RequestStartForgotPassword(email: _email)
-      );
+      await _authenticationService.startForgotPassword(RequestStartForgotPassword(email: _email));
 
       if (!mounted) return;
 
@@ -49,7 +47,6 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
         _isSuccess = true;
         _isLoading = false;
       });
-
     } catch (e) {
       if (!mounted) return;
     } finally {
@@ -57,10 +54,10 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
         setState(() => _isLoading = false);
       }
       DialogUtility.showSuccessDialog(
-          context: context,
-          title: context.message.forgotPassword,
-          message: context.message.forgotPasswordResetLinkSent,
-          onDismiss: () => Navigator.pushReplacementNamed(context, Routes.signIn)
+        context: context,
+        title: context.message.forgotPassword,
+        message: context.message.forgotPasswordResetLinkSent,
+        onDismiss: () => Navigator.pushReplacementNamed(context, Routes.signIn),
       );
     }
   }
@@ -81,19 +78,13 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // Icon
-                    Icon(
-                      Icons.lock_reset,
-                      size: 80,
-                      color: Theme.of(context).primaryColor.withOpacity(0.7),
-                    ),
+                    Icon(Icons.lock_reset, size: 80, color: Theme.of(context).primaryColor.withOpacity(0.7)),
                     const SizedBox(height: 24),
 
                     // Title
                     Text(
                       context.message.forgotPasswordTitle,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
@@ -101,9 +92,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                     // Description
                     Text(
                       context.message.forgotPasswordDescription,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.grey[600],
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 32),
@@ -114,13 +103,8 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                       decoration: InputDecoration(
                         labelText: context.message.forgotPasswordEmail,
                         prefixIcon: const Icon(Icons.email),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 16,
-                        ),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       ),
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.done,
@@ -139,27 +123,12 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                       onPressed: _isLoading ? null : _resetPassword,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         elevation: 2,
                       ),
                       child: _isLoading
-                          ? const SizedBox(
-                        height: 24,
-                        width: 24,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2.5,
-                        ),
-                      )
-                          : Text(
-                        context.message.forgotPasswordSubmit,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                          ? const SizedBox(height: 24, width: 24, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2.5))
+                          : Text(context.message.forgotPasswordSubmit, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     ),
 
                     const SizedBox(height: 24),
@@ -168,20 +137,14 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          context.message.forgotPasswordRemembered,
-                          style: TextStyle(color: Colors.grey[600]),
-                        ),
+                        Text(context.message.forgotPasswordRemembered, style: TextStyle(color: Colors.grey[600])),
                         TextButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(context, Routes.signIn);
                           },
                           child: Text(
                             context.message.signIn,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor),
                           ),
                         ),
                       ],

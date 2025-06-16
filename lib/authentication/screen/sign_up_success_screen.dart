@@ -17,9 +17,17 @@ class SignUpSuccessScreen extends StatelessWidget {
             children: [
               const Icon(Icons.check_circle_outline, size: 100, color: Colors.tealAccent),
               const SizedBox(height: 24),
-              Text(context.message.signUpSuccessTitle, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.tealAccent)),
+              Text(
+                context.message.signUpSuccessTitle,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.tealAccent),
+              ),
               const SizedBox(height: 16),
-              Text(context.message.signUpSuccessMessage, textAlign: TextAlign.center, style: const TextStyle(fontSize: 16, color: Colors.white70)),
+              Text(
+                context.message.signUpSuccessMessage,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16, color: Colors.white70),
+              ),
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {

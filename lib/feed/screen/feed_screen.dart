@@ -25,13 +25,9 @@ class _FeedScreenState extends State<FeedScreen> {
   String _currentLanguage = 'en';
 
   int _currentPage = 0;
-  int _currentIndex = 0;
 
-  // Pre-fetch threshold: when user is this many pages away from end, load more
   static const int _prefetchThreshold = 3;
-  // Initial page size for first load
   static const int _initialPageSize = 10;
-  // Page size for subsequent loads
   static const int _pageSize = 5;
 
   @override
@@ -61,7 +57,7 @@ class _FeedScreenState extends State<FeedScreen> {
         _quotes.addAll(response.quoteDtoList);
         _hasReachedEnd = response.isLast!;
         _isLoading = false;
-        _currentPage = 1; // Next page to load will be 1
+        _currentPage = 1;
       });
     } catch (e) {
       setState(() {
@@ -96,11 +92,6 @@ class _FeedScreenState extends State<FeedScreen> {
   }
 
   void _onPageChanged(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-
-    // Load more quotes when approaching the end
     if (index >= _quotes.length - _prefetchThreshold && !_hasReachedEnd && !_isLoading) {
       _loadMoreQuotes();
     }
@@ -145,7 +136,6 @@ class _FeedScreenState extends State<FeedScreen> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          // Quote Content
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -183,7 +173,6 @@ class _FeedScreenState extends State<FeedScreen> {
             ),
           ),
 
-          // Bottom actions
           Positioned(
             left: 0,
             right: 0,
@@ -200,7 +189,6 @@ class _FeedScreenState extends State<FeedScreen> {
             ),
           ),
 
-          // Divider line at the bottom
           if (showDivider)
             Positioned(
               left: 32,
@@ -214,7 +202,6 @@ class _FeedScreenState extends State<FeedScreen> {
               ),
             ),
 
-          // Swipe indicator
           Positioned(
             left: 0,
             right: 0,
