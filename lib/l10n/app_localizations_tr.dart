@@ -150,34 +150,34 @@ class AppLocalizationsTr extends AppLocalizations {
   String get signUpFailed => 'Kayıt başarısız oldu.';
 
   @override
-  String get forgotPassword => 'Şifremi Unuttum';
+  String get resetPassword => 'Şifremi Unuttum';
 
   @override
-  String get forgotPasswordWithQuestionMark => 'Şifreni mi unuttun?';
+  String get resetPasswordWithQuestionMark => 'Şifreni mi unuttun?';
 
   @override
-  String get forgotPasswordTitle => 'Şifreni Sıfırla';
+  String get resetPasswordTitle => 'Şifreni Sıfırla';
 
   @override
-  String get forgotPasswordDescription => 'E-posta adresini gir ve sana şifre sıfırlama bağlantısı gönderelim.';
+  String get resetPasswordDescription => 'E-posta adresini gir ve sana şifre sıfırlama bağlantısı gönderelim.';
 
   @override
-  String get forgotPasswordEmail => 'E-posta';
+  String get resetPasswordEmail => 'E-posta';
 
   @override
-  String get forgotPasswordEmailHint => 'Lütfen geçerli bir e-posta adresi girin';
+  String get resetPasswordEmailHint => 'Lütfen geçerli bir e-posta adresi girin';
 
   @override
-  String get forgotPasswordSubmit => 'Sıfırlama Bağlantısı Gönder';
+  String get resetPasswordSubmit => 'Sıfırlama Bağlantısı Gönder';
 
   @override
-  String get forgotPasswordFailed => 'Şifre Sıfırlama Başarısız';
+  String get resetPasswordFailed => 'Şifre Sıfırlama Başarısız';
 
   @override
-  String get forgotPasswordResetLinkSent => 'E-posta adresiniz sistemimizde mevcutsa, şifre sıfırlama bağlantısı gönderilmiştir.';
+  String get resetPasswordResetLinkSent => 'E-posta adresiniz sistemimizde mevcutsa, şifre sıfırlama bağlantısı gönderilmiştir.';
 
   @override
-  String get forgotPasswordRemembered => 'Şifreni hatırladın mı?';
+  String get resetPasswordRemembered => 'Şifreni hatırladın mı?';
 
   @override
   String get dashboardFeed => 'Akış';

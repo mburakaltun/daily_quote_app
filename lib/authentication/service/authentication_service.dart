@@ -3,12 +3,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../common/constants/shared_preferences_key.dart';
 import '../../common/service/api_service.dart';
 import '../model/endpoint/authentication_endpoints.dart';
-import '../model/request/request_complete_forgot_password.dart';
+import '../model/request/request_complete_reset_password.dart';
 import '../model/request/request_sign_in_user.dart';
 import '../model/request/request_sign_up_user.dart';
-import '../model/request/request_start_forgot_password.dart';
-import '../model/response/response_complete_forgot_password.dart';
-import '../model/response/response_start_forgot_password.dart';
+import '../model/request/request_start_reset_password.dart';
+import '../model/response/response_complete_reset_password.dart';
+import '../model/response/response_start_reset_password.dart';
 import '../model/response/response_sign_in_user.dart';
 
 class AuthenticationService {
@@ -37,19 +37,19 @@ class AuthenticationService {
     await prefs.setString(SharedPreferencesKey.username, responseSignInUser.username);
   }
 
-  Future<ResponseStartForgotPassword> startForgotPassword(RequestStartForgotPassword requestSendForgotPasswordEmail) async {
+  Future<ResponseStartResetPassword> startResetPassword(RequestStartResetPassword request) async {
     await _apiService.post(
-      endpoint: AuthEndpoints.startForgotPassword,
-      body: requestSendForgotPasswordEmail.toJson(),
-    );
-    return ResponseStartForgotPassword();
-  }
-
-  Future<ResponseCompleteForgotPassword> completeForgotPassword(RequestCompleteForgotPassword request) async {
-    final response = await _apiService.post(
-      endpoint: AuthEndpoints.completeForgotPassword,
+      endpoint: AuthEndpoints.startResetPassword,
       body: request.toJson(),
     );
-    return ResponseCompleteForgotPassword.fromJson(response!);
+    return ResponseStartResetPassword();
+  }
+
+  Future<ResponseCompleteResetPassword> completeResetPassword(RequestCompleteResetPassword request) async {
+    final response = await _apiService.post(
+      endpoint: AuthEndpoints.completeResetPassword,
+      body: request.toJson(),
+    );
+    return ResponseCompleteResetPassword.fromJson(response!);
   }
 }

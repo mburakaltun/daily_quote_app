@@ -377,65 +377,65 @@ abstract class AppLocalizations {
   /// **'Sign up failed.'**
   String get signUpFailed;
 
-  /// No description provided for @forgotPassword.
+  /// No description provided for @resetPassword.
   ///
   /// In en, this message translates to:
   /// **'Forgot Password'**
-  String get forgotPassword;
+  String get resetPassword;
 
-  /// No description provided for @forgotPasswordWithQuestionMark.
+  /// No description provided for @resetPasswordWithQuestionMark.
   ///
   /// In en, this message translates to:
   /// **'Forgot Password?'**
-  String get forgotPasswordWithQuestionMark;
+  String get resetPasswordWithQuestionMark;
 
-  /// No description provided for @forgotPasswordTitle.
+  /// No description provided for @resetPasswordTitle.
   ///
   /// In en, this message translates to:
   /// **'Reset Your Password'**
-  String get forgotPasswordTitle;
+  String get resetPasswordTitle;
 
-  /// No description provided for @forgotPasswordDescription.
+  /// No description provided for @resetPasswordDescription.
   ///
   /// In en, this message translates to:
   /// **'Enter your email address and we\'ll send you a link to reset your password.'**
-  String get forgotPasswordDescription;
+  String get resetPasswordDescription;
 
-  /// No description provided for @forgotPasswordEmail.
+  /// No description provided for @resetPasswordEmail.
   ///
   /// In en, this message translates to:
   /// **'Email'**
-  String get forgotPasswordEmail;
+  String get resetPasswordEmail;
 
-  /// No description provided for @forgotPasswordEmailHint.
+  /// No description provided for @resetPasswordEmailHint.
   ///
   /// In en, this message translates to:
   /// **'Please enter a valid email address'**
-  String get forgotPasswordEmailHint;
+  String get resetPasswordEmailHint;
 
-  /// No description provided for @forgotPasswordSubmit.
+  /// No description provided for @resetPasswordSubmit.
   ///
   /// In en, this message translates to:
   /// **'Send Reset Link'**
-  String get forgotPasswordSubmit;
+  String get resetPasswordSubmit;
 
-  /// No description provided for @forgotPasswordFailed.
+  /// No description provided for @resetPasswordFailed.
   ///
   /// In en, this message translates to:
   /// **'Password Reset Failed'**
-  String get forgotPasswordFailed;
+  String get resetPasswordFailed;
 
-  /// No description provided for @forgotPasswordResetLinkSent.
+  /// No description provided for @resetPasswordResetLinkSent.
   ///
   /// In en, this message translates to:
   /// **'If your email exists in our system, a password reset link has been sent.'**
-  String get forgotPasswordResetLinkSent;
+  String get resetPasswordResetLinkSent;
 
-  /// No description provided for @forgotPasswordRemembered.
+  /// No description provided for @resetPasswordRemembered.
   ///
   /// In en, this message translates to:
   /// **'Remembered your password?'**
-  String get forgotPasswordRemembered;
+  String get resetPasswordRemembered;
 
   /// No description provided for @dashboardFeed.
   ///

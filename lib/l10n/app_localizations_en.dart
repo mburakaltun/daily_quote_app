@@ -150,34 +150,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signUpFailed => 'Sign up failed.';
 
   @override
-  String get forgotPassword => 'Forgot Password';
+  String get resetPassword => 'Forgot Password';
 
   @override
-  String get forgotPasswordWithQuestionMark => 'Forgot Password?';
+  String get resetPasswordWithQuestionMark => 'Forgot Password?';
 
   @override
-  String get forgotPasswordTitle => 'Reset Your Password';
+  String get resetPasswordTitle => 'Reset Your Password';
 
   @override
-  String get forgotPasswordDescription => 'Enter your email address and we\'ll send you a link to reset your password.';
+  String get resetPasswordDescription => 'Enter your email address and we\'ll send you a link to reset your password.';
 
   @override
-  String get forgotPasswordEmail => 'Email';
+  String get resetPasswordEmail => 'Email';
 
   @override
-  String get forgotPasswordEmailHint => 'Please enter a valid email address';
+  String get resetPasswordEmailHint => 'Please enter a valid email address';
 
   @override
-  String get forgotPasswordSubmit => 'Send Reset Link';
+  String get resetPasswordSubmit => 'Send Reset Link';
 
   @override
-  String get forgotPasswordFailed => 'Password Reset Failed';
+  String get resetPasswordFailed => 'Password Reset Failed';
 
   @override
-  String get forgotPasswordResetLinkSent => 'If your email exists in our system, a password reset link has been sent.';
+  String get resetPasswordResetLinkSent => 'If your email exists in our system, a password reset link has been sent.';
 
   @override
-  String get forgotPasswordRemembered => 'Remembered your password?';
+  String get resetPasswordRemembered => 'Remembered your password?';
 
   @override
   String get dashboardFeed => 'Feed';

@@ -1,7 +1,7 @@
-class RequestStartForgotPassword {
+class RequestStartResetPassword {
   final String email;
 
-  RequestStartForgotPassword({
+  RequestStartResetPassword({
     required this.email,
   });
 

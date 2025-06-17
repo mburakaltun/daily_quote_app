@@ -178,7 +178,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, Routes.forgotPassword);
+                          Navigator.pushNamed(context, Routes.resetPassword);
                         },
                         child: Text(context.message.signInForgotPassword, style: TextStyle(color: Theme.of(context).primaryColor)),
                       ),

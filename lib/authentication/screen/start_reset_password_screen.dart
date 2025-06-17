@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 import '../../common/constants/routes.dart';
 import '../../common/utility/dialog_utility.dart';
-import '../model/request/request_start_forgot_password.dart';
+import '../model/request/request_start_reset_password.dart';
 import '../service/authentication_service.dart';
 
-class StartForgotPasswordScreen extends StatefulWidget {
-  const StartForgotPasswordScreen({super.key});
+class StartResetPasswordScreen extends StatefulWidget {
+  const StartResetPasswordScreen({super.key});
 
   @override
-  State<StartForgotPasswordScreen> createState() => _StartForgotPasswordScreenState();
+  State<StartResetPasswordScreen> createState() => _StartResetPasswordScreenState();
 }
 
-class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
+class _StartResetPasswordScreenState extends State<StartResetPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _authenticationService = AuthenticationService();
@@ -39,7 +39,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
     });
 
     try {
-      await _authenticationService.startForgotPassword(RequestStartForgotPassword(email: _email));
+      await _authenticationService.startResetPassword(RequestStartResetPassword(email: _email));
 
       if (!mounted) return;
 
@@ -55,8 +55,8 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
       }
       DialogUtility.showSuccessDialog(
         context: context,
-        title: context.message.forgotPassword,
-        message: context.message.forgotPasswordResetLinkSent,
+        title: context.message.resetPassword,
+        message: context.message.resetPasswordResetLinkSent,
         onDismiss: () => Navigator.pushReplacementNamed(context, Routes.signIn),
       );
     }
@@ -83,7 +83,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
 
                     // Title
                     Text(
-                      context.message.forgotPasswordTitle,
+                      context.message.resetPasswordTitle,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
@@ -91,7 +91,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
 
                     // Description
                     Text(
-                      context.message.forgotPasswordDescription,
+                      context.message.resetPasswordDescription,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
                       textAlign: TextAlign.center,
                     ),
@@ -101,7 +101,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                     TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
-                        labelText: context.message.forgotPasswordEmail,
+                        labelText: context.message.resetPasswordEmail,
                         prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                         contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -110,7 +110,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                       textInputAction: TextInputAction.done,
                       validator: (value) {
                         if (value == null || value.isEmpty || !value.contains('@')) {
-                          return context.message.forgotPasswordEmailHint;
+                          return context.message.resetPasswordEmailHint;
                         }
                         return null;
                       },
@@ -128,7 +128,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                       ),
                       child: _isLoading
                           ? const SizedBox(height: 24, width: 24, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2.5))
-                          : Text(context.message.forgotPasswordSubmit, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                          : Text(context.message.resetPasswordSubmit, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     ),
 
                     const SizedBox(height: 24),
@@ -137,7 +137,7 @@ class _StartForgotPasswordScreenState extends State<StartForgotPasswordScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(context.message.forgotPasswordRemembered, style: TextStyle(color: Colors.grey[600])),
+                        Text(context.message.resetPasswordRemembered, style: TextStyle(color: Colors.grey[600])),
                         TextButton(
                           onPressed: () {
                             Navigator.pushReplacementNamed(context, Routes.signIn);

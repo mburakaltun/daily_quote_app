@@ -1,4 +1,4 @@
-import 'package:daily_quote_app/authentication/screen/start_forgot_password_screen.dart';
+import 'package:daily_quote_app/authentication/screen/start_reset_password_screen.dart';
 import 'package:daily_quote_app/authentication/screen/sign_up_screen.dart';
 import 'package:daily_quote_app/common/extension/localization_extension.dart';
 import 'package:daily_quote_app/common/screen/dashboard_screen.dart';
@@ -111,7 +111,7 @@ class _DailyQuoteAppState extends State<DailyQuoteApp> {
       routes: {
         Routes.signIn: (context) => const SignInScreen(),
         Routes.signUp: (context) => const SignUpScreen(),
-        Routes.forgotPassword : (context) => const StartForgotPasswordScreen(),
+        Routes.resetPassword : (context) => const StartResetPasswordScreen(),
         Routes.signUpSuccess: (context) => const SignUpSuccessScreen(),
         Routes.feed : (context) => const FeedScreen(),
         Routes.dashboard : (context) => const DashboardScreen(),
