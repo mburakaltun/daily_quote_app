@@ -437,6 +437,72 @@ abstract class AppLocalizations {
   /// **'Remembered your password?'**
   String get resetPasswordRemembered;
 
+  /// No description provided for @resetPasswordNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get resetPasswordNew;
+
+  /// No description provided for @resetPasswordNewHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get resetPasswordNewHint;
+
+  /// No description provided for @resetPasswordConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get resetPasswordConfirm;
+
+  /// No description provided for @resetPasswordConfirmHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your new password'**
+  String get resetPasswordConfirmHint;
+
+  /// No description provided for @resetPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get resetPasswordMismatch;
+
+  /// No description provided for @resetPasswordSuccessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Reset Successful'**
+  String get resetPasswordSuccessTitle;
+
+  /// No description provided for @resetPasswordSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your password has been reset successfully. You can now log in with your new password.'**
+  String get resetPasswordSuccessMessage;
+
+  /// No description provided for @resetPasswordSuccessContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to Login'**
+  String get resetPasswordSuccessContinue;
+
+  /// No description provided for @resetPasswordCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPasswordCompleteTitle;
+
+  /// No description provided for @resetPasswordCompleteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Please create a new secure password for your account'**
+  String get resetPasswordCompleteDescription;
+
+  /// No description provided for @resetPasswordCompleteSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPasswordCompleteSubmit;
+
   /// No description provided for @dashboardFeed.
   ///
   /// In en, this message translates to:

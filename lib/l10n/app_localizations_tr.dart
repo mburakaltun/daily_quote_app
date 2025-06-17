@@ -180,6 +180,39 @@ class AppLocalizationsTr extends AppLocalizations {
   String get resetPasswordRemembered => 'Şifreni hatırladın mı?';
 
   @override
+  String get resetPasswordNew => 'Yeni Şifre';
+
+  @override
+  String get resetPasswordNewHint => 'Şifre en az 8 karakter olmalıdır';
+
+  @override
+  String get resetPasswordConfirm => 'Yeni Şifreyi Onayla';
+
+  @override
+  String get resetPasswordConfirmHint => 'Lütfen yeni şifrenizi onaylayın';
+
+  @override
+  String get resetPasswordMismatch => 'Şifreler eşleşmiyor';
+
+  @override
+  String get resetPasswordSuccessTitle => 'Şifre Sıfırlama Başarılı';
+
+  @override
+  String get resetPasswordSuccessMessage => 'Şifreniz başarıyla sıfırlandı. Artık yeni şifrenizle giriş yapabilirsiniz.';
+
+  @override
+  String get resetPasswordSuccessContinue => 'Giriş Sayfasına Devam Et';
+
+  @override
+  String get resetPasswordCompleteTitle => 'Şifre Sıfırlama';
+
+  @override
+  String get resetPasswordCompleteDescription => 'Lütfen hesabınız için yeni güvenli bir şifre oluşturun';
+
+  @override
+  String get resetPasswordCompleteSubmit => 'Şifreyi Sıfırla';
+
+  @override
   String get dashboardFeed => 'Akış';
 
   @override

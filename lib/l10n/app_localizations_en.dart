@@ -180,6 +180,39 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetPasswordRemembered => 'Remembered your password?';
 
   @override
+  String get resetPasswordNew => 'New Password';
+
+  @override
+  String get resetPasswordNewHint => 'Password must be at least 8 characters';
+
+  @override
+  String get resetPasswordConfirm => 'Confirm New Password';
+
+  @override
+  String get resetPasswordConfirmHint => 'Please confirm your new password';
+
+  @override
+  String get resetPasswordMismatch => 'Passwords do not match';
+
+  @override
+  String get resetPasswordSuccessTitle => 'Password Reset Successful';
+
+  @override
+  String get resetPasswordSuccessMessage => 'Your password has been reset successfully. You can now log in with your new password.';
+
+  @override
+  String get resetPasswordSuccessContinue => 'Continue to Login';
+
+  @override
+  String get resetPasswordCompleteTitle => 'Reset Password';
+
+  @override
+  String get resetPasswordCompleteDescription => 'Please create a new secure password for your account';
+
+  @override
+  String get resetPasswordCompleteSubmit => 'Reset Password';
+
+  @override
   String get dashboardFeed => 'Feed';
 
   @override
